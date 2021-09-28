@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/28 15:00:00 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/28 16:23:14 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,17 @@ Fixed::Fixed( const Fixed & src )
 	return;
 }
 
+Fixed::Fixed( int const value ) : _value(value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	
+}
 
+Fixed::Fixed( float const value )
+{
+	std::cout << "Float constructor called" << std::endl;
+	_value = (int) value;	
+}
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
@@ -58,6 +68,11 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	return *this;
 }
 
+std::ostream &			operator<<( std::ostream & o, Fixed const & i )
+{
+	//o << "Value = " << i.getValue();
+	return o;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
