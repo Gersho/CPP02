@@ -6,12 +6,13 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/28 15:00:00 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 12:47:10 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+int const Fixed::_fbits = 8;
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */

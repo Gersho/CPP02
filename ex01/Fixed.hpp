@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:45 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/28 16:19:48 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 12:37:06 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Fixed
 	private:
 
 	int					_value;
-	static int const 	_fbits = 8;
+	static int const 	_fbits;
 
 };
 

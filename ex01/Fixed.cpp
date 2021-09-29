@@ -6,11 +6,14 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/28 16:23:14 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 12:59:09 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
+
+int const Fixed::_fbits = 8;
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -30,16 +33,17 @@ Fixed::Fixed( const Fixed & src )
 	return;
 }
 
-Fixed::Fixed( int const value ) : _value(value)
+Fixed::Fixed( int const value )
 {
 	std::cout << "Int constructor called" << std::endl;
+	_value = value << _fbits;
 	
 }
 
 Fixed::Fixed( float const value )
 {
 	std::cout << "Float constructor called" << std::endl;
-	_value = (int) value;	
+	_value = value << (1 * _fbits);	
 }
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -77,6 +81,15 @@ std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+int		Fixed::toInt(void) const
+{
+	return (_value >> _fbits);
+}
+
+float	Fixed::toFloat(void) const
+{
+
+}
 
 
 /*
