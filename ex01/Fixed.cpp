@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/29 12:59:09 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 16:57:49 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Fixed::Fixed( int const value )
 Fixed::Fixed( float const value )
 {
 	std::cout << "Float constructor called" << std::endl;
-	_value = value << (1 * _fbits);	
+	_value = value * (1 << _fbits);	
 }
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -72,9 +72,9 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Fixed const & i )
+std::ostream &			Fixed::operator<<( std::ostream & o, Fixed const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "Value = " << i.toFloat();
 	return o;
 }
 
@@ -88,7 +88,7 @@ int		Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-
+	return (_value >> _fbits);
 }
 
 
