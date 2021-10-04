@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/10/04 16:57:49 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 18:21:47 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	return *this;
 }
 
-std::ostream &			Fixed::operator<<( std::ostream & o, Fixed const & i )
+std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 {
-	o << "Value = " << i.toFloat();
+	//std::cout << "<< operator called" << std::endl;
+	o << i.toFloat();
 	return o;
 }
 
@@ -89,6 +90,7 @@ int		Fixed::toInt(void) const
 float	Fixed::toFloat(void) const
 {
 	return (_value >> _fbits);
+	//return ((float)_value * (1 >> _fbits));
 }
 
 

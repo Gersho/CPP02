@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:45 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/10/04 16:57:56 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:57:27 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ class Fixed
 	float	toFloat(void) const;
 
 	Fixed &		operator=( Fixed const & rhs );
-	std::ostream& operator<<( std::ostream & o, Fixed const & i );
 	private:
 
 	int					_value;
 	static int const 	_fbits;
 
 };
+	std::ostream& operator<<( std::ostream & o, Fixed const & i );
 
 
 #endif /* *********************************************************** FIXED_H */
