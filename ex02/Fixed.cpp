@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/10/06 13:37:51 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:20:49 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Fixed::Fixed( int const value )
 	
 }
 
-Fixed::Fixed( float const value )
+Fixed::Fixed ( float const value )
 {
 	std::cout << "Float constructor called" << std::endl;
 	_value = roundf(value * (1 << _fbits));	
@@ -79,6 +79,97 @@ std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 	return o;
 }
 
+Fixed &		Fixed::operator+( Fixed const & rhs )
+{
+	// float tmp;
+	
+	// tmp = this->toFloat() + rhs.toFloat();
+	// return (tmp);
+
+	Fixed tmp(this->toFloat() + rhs.toFloat());
+
+	return (tmp);
+}
+
+Fixed &		Fixed::operator-( Fixed const & rhs )
+{
+	// Fixed tmp(this->toFloat() - rhs.toFloat());
+
+	// return (tmp);
+	
+	return Fixed(this->toFloat() - rhs.toFloat());
+}
+
+Fixed &		Fixed::operator*( Fixed const & rhs )
+{
+	Fixed tmp(this->toFloat() * rhs.toFloat());
+
+	return (tmp);
+}
+
+Fixed &		Fixed::operator/( Fixed const & rhs )
+{
+	Fixed tmp(this->toFloat() / rhs.toFloat());
+
+	return (tmp);
+}
+
+bool	Fixed::operator<(Fixed const & rhs) const
+{
+	return (this->toFloat() < rhs.toFloat());
+}
+
+bool	Fixed::operator>(Fixed const & rhs) const
+{
+	return (this->toFloat() > rhs.toFloat());
+}
+
+bool	Fixed::operator<=(Fixed const & rhs) const
+{
+	return (this->toFloat() <= rhs.toFloat());
+}
+
+bool	Fixed::operator>=(Fixed const & rhs) const
+{
+	return (this->toFloat() >= rhs.toFloat());
+}
+
+bool	Fixed::operator==(Fixed const & rhs) const
+{
+	return (this->toFloat() == rhs.toFloat());
+}
+
+bool	Fixed::operator!=(Fixed const & rhs) const
+{
+	return (this->toFloat() != rhs.toFloat());
+}
+
+Fixed&	Fixed::operator++( void ) {
+	this->_value++;
+	return *this;
+}
+
+Fixed	Fixed::operator++( int n ) {
+	( void ) n;
+	Fixed	res;
+
+	res = ++*this;
+	return res;
+}
+
+Fixed&	Fixed::operator--( void ) {
+	this->_value--;
+	return *this;
+}
+
+Fixed	Fixed::operator--( int n ) {
+	( void ) n;
+	Fixed	res;
+
+	res = --*this;
+	return res;
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -89,8 +180,6 @@ int		Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	//return (_value >> _fbits);
-	//return roundf(_value / (1 << _fbits));
 	return (_value / (float)(1 << _fbits));
 }
 
