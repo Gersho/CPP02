@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:23:38 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/28 14:58:22 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 13:47:21 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 int main(void)
 {
-	Fixed a;
+	Fixed a;	
 	Fixed b(a);
-	std::cout << "blabla" << std::endl;
 	Fixed c;
 	
 	c = b;

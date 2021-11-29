@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:45 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/10/06 15:20:52 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 16:08:47 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ class Fixed
 	Fixed 		operator++( int n );
 	Fixed &		operator--( void );
 	Fixed 		operator--( int n );
+	static Fixed &		min(Fixed &a, Fixed &b);
+	static Fixed &		min(Fixed const & a, Fixed const & b);
+	static Fixed &		max(Fixed &a, Fixed &b);
+	static Fixed &		max(Fixed const & a, Fixed const & b);
 	bool	operator<(Fixed const & rhs) const;
 	bool	operator>(Fixed const & rhs) const;
 	bool	operator<=(Fixed const & rhs) const;

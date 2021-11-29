@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/10/06 15:20:49 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 16:09:35 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ Fixed::~Fixed()
 
 Fixed &				Fixed::operator=( Fixed const & rhs )
 {
-	// (void)rhs;
-	// return *this;
-	std::cout << "Assignation operator called" << std::endl;
 	if ( this != &rhs )
 	{
 		this->_value = rhs.getRawBits();
@@ -74,44 +71,36 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 {
-	//std::cout << "<< operator called" << std::endl;
 	o << i.toFloat();
 	return o;
 }
 
 Fixed &		Fixed::operator+( Fixed const & rhs )
 {
-	// float tmp;
-	
-	// tmp = this->toFloat() + rhs.toFloat();
-	// return (tmp);
+	Fixed *tmp = new Fixed(this->toFloat() + rhs.toFloat());
 
-	Fixed tmp(this->toFloat() + rhs.toFloat());
-
-	return (tmp);
+	return (*tmp);
 }
 
 Fixed &		Fixed::operator-( Fixed const & rhs )
 {
-	// Fixed tmp(this->toFloat() - rhs.toFloat());
+	Fixed *tmp = new Fixed(this->toFloat() - rhs.toFloat());
 
-	// return (tmp);
-	
-	return Fixed(this->toFloat() - rhs.toFloat());
+	return (*tmp);
 }
 
 Fixed &		Fixed::operator*( Fixed const & rhs )
 {
-	Fixed tmp(this->toFloat() * rhs.toFloat());
+	Fixed *tmp = new Fixed(this->toFloat() * rhs.toFloat());
 
-	return (tmp);
+	return (*tmp);
 }
 
 Fixed &		Fixed::operator/( Fixed const & rhs )
 {
-	Fixed tmp(this->toFloat() / rhs.toFloat());
+	Fixed *tmp = new Fixed(this->toFloat() / rhs.toFloat());
 
-	return (tmp);
+	return (*tmp);
 }
 
 bool	Fixed::operator<(Fixed const & rhs) const
@@ -181,6 +170,34 @@ int		Fixed::toInt(void) const
 float	Fixed::toFloat(void) const
 {
 	return (_value / (float)(1 << _fbits));
+}
+
+Fixed &		min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed &		min(Fixed const & a, Fixed const & b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed &		max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed &		max(Fixed const & a, Fixed const & b)
+{
+	if (a > b)
+		return a;
+	return b;
 }
 
 

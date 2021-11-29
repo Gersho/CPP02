@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/10/06 13:37:51 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 13:50:49 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ Fixed::Fixed( float const value )
 
 Fixed::~Fixed()
 {
-
 	std::cout << "Destructor called" << std::endl;
 }
 
@@ -62,8 +61,6 @@ Fixed::~Fixed()
 
 Fixed &				Fixed::operator=( Fixed const & rhs )
 {
-	// (void)rhs;
-	// return *this;
 	std::cout << "Assignation operator called" << std::endl;
 	if ( this != &rhs )
 	{
@@ -74,7 +71,6 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 {
-	//std::cout << "<< operator called" << std::endl;
 	o << i.toFloat();
 	return o;
 }
@@ -89,8 +85,6 @@ int		Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	//return (_value >> _fbits);
-	//return roundf(_value / (1 << _fbits));
 	return (_value / (float)(1 << _fbits));
 }
 

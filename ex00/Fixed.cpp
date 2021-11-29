@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:55 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/29 12:47:10 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 13:35:21 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ Fixed::Fixed() : _value(0)
 
 Fixed::Fixed( const Fixed & src )
 {
-
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
-
 	return;
 }
 
@@ -49,8 +47,6 @@ Fixed::~Fixed()
 
 Fixed &				Fixed::operator=( Fixed const & rhs )
 {
-	// (void)rhs;
-	// return *this;
 	std::cout << "Assignation operator called" << std::endl;
 	if ( this != &rhs )
 	{
