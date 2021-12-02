@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 12:27:45 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/11/29 16:08:47 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 12:25:16 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ class Fixed
 	float	toFloat(void) const;
 
 	Fixed &		operator=( Fixed const & rhs );
-	Fixed &		operator+( Fixed const & rhs );
-	Fixed &		operator-( Fixed const & rhs );
-	Fixed &		operator*( Fixed const & rhs );
-	Fixed &		operator/( Fixed const & rhs );
+	Fixed		operator+( Fixed const & rhs );
+	Fixed		operator-( Fixed const & rhs );
+	Fixed		operator*( Fixed const & rhs );
+	Fixed		operator/( Fixed const & rhs );
 	Fixed &		operator++( void);
 	Fixed 		operator++( int n );
 	Fixed &		operator--( void );
 	Fixed 		operator--( int n );
-	static Fixed &		min(Fixed &a, Fixed &b);
-	static Fixed &		min(Fixed const & a, Fixed const & b);
-	static Fixed &		max(Fixed &a, Fixed &b);
-	static Fixed &		max(Fixed const & a, Fixed const & b);
-	bool	operator<(Fixed const & rhs) const;
-	bool	operator>(Fixed const & rhs) const;
-	bool	operator<=(Fixed const & rhs) const;
-	bool	operator>=(Fixed const & rhs) const;
-	bool	operator==(Fixed const & rhs) const;
-	bool	operator!=(Fixed const & rhs) const;
+	bool		operator<(Fixed const & rhs) const;
+	bool		operator>(Fixed const & rhs) const;
+	bool		operator<=(Fixed const & rhs) const;
+	bool		operator>=(Fixed const & rhs) const;
+	bool		operator==(Fixed const & rhs) const;
+	bool		operator!=(Fixed const & rhs) const;
+	static Fixed &			min(Fixed &a, Fixed &b);
+	static const Fixed &	min(Fixed const & a, Fixed const & b);
+	static Fixed &			max(Fixed &a, Fixed &b);
+	static const Fixed &	max(Fixed const & a, Fixed const & b);
 
 	private:
 
